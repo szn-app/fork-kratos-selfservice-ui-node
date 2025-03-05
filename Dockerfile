@@ -1,4 +1,17 @@
-FROM node:18.12.1-alpine
+FROM node:lts as development
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY . /usr/src/app
+RUN npm install
+
+ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["npm run start"]
+
+# ---
+
+FROM node:18.12.1-alpine as production
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

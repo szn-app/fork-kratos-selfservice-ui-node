@@ -38,4 +38,4 @@ COPY . /usr/src/app
 RUN npm install
 
 ENTRYPOINT ["/bin/sh", "-c"]
-CMD ["npm run start"]
+CMD ["npm run dev"]
